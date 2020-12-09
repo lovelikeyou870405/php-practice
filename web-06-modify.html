@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <title>PHP練習-修改會員資料</title>
+</head>
+<body>
+    <div class="card">
+        <div class="card-body center">
+            <p class="text-center">歡迎來到本站，您必須加入成為本站的會員，才有權限使用本站的功能。若您已經擁有帳號，請輸入您的帳號及密碼，然後按"登入"。若您尚未成為本站會員，請點"加入會員"超連結。若您忘記自己的帳號及密碼，請點"查詢密碼"超連結。</p>
+        </div>
+    </div>
+    <div class="container col-5 justify-content-center mt-5">
+        <form name="myform" action="./web-06-modify-check.php" method="POST">
+            <div class="form-group">
+              <label for="account">使用者帳號</label>
+              <input type="email" class="form-control" id="account" name="account" readonly value="<?php echo $row->account; ?>">
+            </div>
+            <div class="form-group">
+              <label for="password">* 輸入舊的密碼</label>
+              <input type="password" class="form-control" id="password" name="password">
+            </div>
+            <div class="form-group">
+                <label for="newpassword"">輸入新的密碼</label>
+                <input type="password" class="form-control" id="newpassword" name="newpassword">
+                <small>若空著表示不更改密碼。</small>
+            </div>
+            <div class="form-group">
+                <label for="chpassword">再次確認密碼</label>
+                <input type="password" class="form-control" id="chpassword" name="chpassword">
+            </div>
+            <div class="form-group">
+                <label for="name">* 暱稱</label>
+                <input type="text" class="form-control" id="name" name="name" value="<?php echo $row->name; ?>">
+            </div>
+            <div class="form-group">
+                <label for="email">* 電子信箱</label>
+                <input type="email" class="form-control" id="email" name="email" value="<?php echo $row->email; ?>">
+            </div>
+            <div class="form-group">
+                <label for="telephone">電話</label>
+                <input type="text" class="form-control" id="telephone" name="telephone" value="<?php echo $row->telephone; ?>">
+            </div>
+            <div class="form-group">
+                <label for="cellphone">行動電話</label>
+                <input type="text" class="form-control" id="cellphone" name="cellphone" value="<?php echo $row->cellphone; ?>">
+            </div>
+            <div class="form-group">
+                <label for="address">通訊地址</label>
+                <input type="text" class="form-control" id="address" name="address" value="<?php echo $row->address; ?>">
+            </div>
+            <button type="submit" class="btn btn-primary mt-3 mr-2">修改</button>
+            <a href="./web-06-main.php" class="btn btn-primary mt-3">取消</a>
+          </form>
+    </div>
+</body>
+</html>

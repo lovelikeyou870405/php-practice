@@ -6,7 +6,7 @@
 </head>
 <?php
     require_once("./php/dbtool.inc.php");
-    $link = create_contection();
+    $link = create_connection();
     $sql = "SELECT * FROM friend_club";
     $result = exe_sql($link, "friend", $sql);
 

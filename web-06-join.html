@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <title>PHP練習-加入會員</title>
+</head>
+<body>
+    <div class="card">
+        <div class="card-body center">
+            <p class="text-center">歡迎來到本站，您必須加入成為本站的會員，才有權限使用本站的功能。若您已經擁有帳號，請輸入您的帳號及密碼，然後按"登入"。若您尚未成為本站會員，請點"加入會員"超連結。若您忘記自己的帳號及密碼，請點"查詢密碼"超連結。</p>
+        </div>
+    </div>
+    <div class="container col-5 justify-content-center mt-5">
+        <form name="myform" action="./web-06-addmember.php" method="POST">
+            <div class="form-group">
+              <label for="account">* 使用者帳號</label>
+              <input type="text" class="form-control" id="account" name="account" placeholder="">
+              <small>請輸入您的使用者帳號。</small>
+            </div>
+            <div class="form-group">
+                <label for="password">* 使用者密碼</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="">
+                <small>請輸入您的使用者密碼。</small>
+            </div>
+            <div class="form-group">
+                <label for="chpassword">* 確認密碼</label>
+                <input type="password" class="form-control" id="chpassword" name="chpassword" placeholder="">
+                <small>請再次輸入您的使用者密碼。</small>
+            </div>
+            <div class="form-group">
+                <label for="name">* 暱稱</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="">
+                <small>請輸入您的使用者暱稱，往後可以更改。</small>
+            </div>
+            <div class="form-group">
+                <label for="email">* 電子信箱</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="">
+                <small>請輸入您常用的電子信箱。</small>
+              </div>
+            <div class="form-group mb-0">
+                <label>* 性別</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline mb-3">
+                <input type="radio" id="sex-boy" name="sex" class="custom-control-input" value="男" checked>
+                <label class="custom-control-label" for="sex-boy">男生</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="sex-girl" name="sex" class="custom-control-input" value="女">
+                <label class="custom-control-label" for="sex-girl">女生</label>
+            </div>
+            <div class="form-group">
+                <label for="bd">* 生日</label>
+                <input type="date" name="bd" id="bd" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="address">* 通訊地址</label>
+                <input type="text" class="form-control" id="address" name="address" placeholder="">
+                <small>請輸入您所在的通訊地址。</small>
+              </div>
+            <div class="form-group">
+                <label>電話</label>
+                <div class="form-row">
+                    <div class="col-2">
+                        <input type="text" class="form-control" placeholder="XX" name="telephone1">
+                    </div>
+                    -
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="XXXXXXX" name="telephone2">
+                    </div>
+                  </div>
+            </div>
+            <div class="form-group">
+                <label>手機號碼</label>
+                <div class="form-row">
+                    (
+                    <div class="col-2">
+                        <input type="text" class="form-control" placeholder="09XX" name="cellphone1">
+                    </div>
+                    )
+                    <div class="col-4">
+                      <input type="text" class="form-control" placeholder="XXXXXX" name="cellphone2">
+                    </div>
+            </div>
+            <div class="form-group mt-5">
+                <p>已經有帳號了? 前往 <a href="./web-06-index.html">登入</a></p>
+                <input type="button" value="註冊" class="btn btn-primary" onClick="check_join_data()">
+                <input type="reset" value="重設" class="btn btn-primary ml-3">
+            </div>
+          </form>
+    </div>
+    <!--JS import-->
+    <script src="./js/web-06-2.js"></script>
+</body>
+</html>

@@ -1,0 +1,438 @@
+微軟正黑體
+
+font-family: Microsoft JhenHei;
+
+筆記:
+Rest Parameters(餘下參數):當要傳入的參數數量不確定時，就可以使用餘下參數，方式:三個連續的點加上參數名稱。
+ex. function NumberSum(...numbers){}
+*傳入的numbers資料會被存成陣列模式。
+*呼叫方式:numbers(1,2)也可以numbers(1,2,3,4,5)
+
+Vue元件要設定在Vue router、Vue實例之前，否則會抓不到。
+
+alias(別名屬性)，可以為原先的路由取個別名，網址上看到的就會是後來命名的alias就不會是原本path的名字。別名也可以取很多個，像是綽號一樣。
+
+redirect(重新導向屬性)，可以把原先要前往的路由導向其他路由。像是本來要導到'/home'，加上redirect:'/about'後，就會被改成導到'/about'。
+
+path的設定值是一個星號的話，表示任意的路徑名稱。
+
+Navigation Guards(導覽警衛裝置)，提供給開發人員用來保護某些頁面的安全機制，由導覽警衛裝置在"切換至該頁面路由前"做"安全檢查"來決定是否放行，如果經過驗證就會放行，如果不是，則會被導向登入頁面。
+在路由裡面加上meta屬性，裡面將requiresAuth設定為true。
+
+< Bootstrap筆記 >
+行列(col、row)-大小(lg[大螢幕桌機]、md[桌機]、sm[平板]、xs[手機])-占多少欄(滿欄是12，沒寫的話就是自動=>那一欄有剩的就會平均分配給未填寫的)
+
+auto:依照內容自動調整變動寬度。
+
+no-gutters:取消欄與欄之間的間隙。
+
+對齊的部分:
+justify-content-start:對齊flex容器的起點。
+justify-content-center:對齊flex容器的中央。
+justify-content-end:對齊flex容器的終點。
+justify-contnet-around:在flex容器中平均對齊。
+justify-content-between:對齊flex容器的起點及終點(兩側)。
+
+display的部分:
+d-none:display:none的意思。
+d-大小(lg、md、sm、xs)-none或block:在此大小範圍時，是否顯示。none:不顯示，block:顯示。
+
+顏色的部分:
+primary:藍色
+secondary:灰色
+success:綠色
+danger:紅色
+warning:黃色
+info:淡藍色
+light:淺色
+dark:深色
+
+留白的部分:
+{m(margin)、p(padding)}{t(top)、b(bottom)、l(left)、r(right)、x(*-left和 *-right)、y(*-top和 *-bottom)、空白(設定四個邊緣)}-{0~5($spacer*0.25n)、auto}
+
+ex. 上內距2 => pt-2
+
+文字的部分:
+text-center:文字置中。
+
+
+< php筆記 >
+瀏覽器端Scripts:嵌入在HTML原始碼的小程式，由瀏覽器負責執行。
+伺服器端Scripts:嵌入在HTML原始碼的小程式，由伺服器負責執行。
+
+appserv 密碼: rootroot
+
+<?php ?> 標示PHP程式碼區塊
+以下也可以，但不推薦:
+<? ?>
+<script language="php">...</script>
+<% %>
+
+如何將php程式碼寫在外部檔案:
+1.將寫完的php程式碼存成 .inc 檔。
+2.在網頁內設定外部的路徑:
+<?php include_once("路徑"); ?>
+
+有四種內建函式可以設定外部PHP路徑:
+include、include_once、require、require_once
+其中include系列的為:發生錯誤時，僅會提出警告，require系列則會終止程式執行。有無once則表示載入外部的PHP檔案只會進行一次，不會重複定義函式而導致錯誤。
+
+關鍵字(保留字):由PHP所定義，所以不能使用關鍵字來定義一般的變數或常數。
+特殊字元:小括號、大括號、分號、錢字符號、多行註解符號等。
+識別字:程式設計人員可以自行定義新字，作為變數、函式或類別名稱。
+
+PHP會區分變數名稱與常數名稱的英文字母大小寫。
+PHP每行結尾需加上分號。
+
+<型別>
+*純量型別(scalar type):
+**整數(integer):
+前面加上0表示八進位、0x表示十六進位、0b表示二進位。
+ex. 010:八進位的8、0x10十六進位的16、0b10二進位的2。
+**浮點數(float、double)
+**布林(boolean):
+除了整數0、浮點數0.0、空字串""、"0"、沒有元素的陣列、沒有成員的物件、NULL會轉成false，其餘皆轉成true。
+**字串(string):
+若要取得變數名稱，則會取得$符號後面到下一個不是英文字母、數字及底線(_)的字元之間的字串，將他當成變數名稱。
+
+*特殊型別(special type):
+**NULL:
+沒有大小寫之分，意義是沒有值(no value)。
+**資源(resource):
+用來指向PHP程式的外部資源，例如:資料庫、檔案、圖形畫布等。當我們要手動釋放資源時，可以將指向資源的變數設定為NULL。
+ex. 
+$my_resource = mysql_connect();
+$my_resource = NULL;
+
+*複合型別(compound type):
+**陣列(array)
+**物件(object)
+
+[檢查型別]
+*gettype(arg)
+傳回參數arg的型別，"integer"、"double"、"boolean"、"string"、"NULL"、"resource"、"array"、"object"、"unknown type"。
+
+*is_integer(arg)、is_int(arg)、is_long(arg)
+判定是否為整數型別。
+
+[轉換型別]
+(int)、(integer)、(float)、(double)...用小括號括起來後面接變數名稱表示有明確轉換資料型別。
+ex. (int)varName
+settype(var,type):函式設定型別，第一個參數放要改變的變數名稱，第二個參數放指定的型別。
+ex. settype(varName,int)
+
+<變數>
+變數名稱的前面必須加上錢字符號($)，且不可以以數字為頭。
+變數在使用之前無須宣告型別，同時在執行時視情況轉換型別。
+*可變動變數:可以動態設定變數名稱。
+ex. 
+$var = "happy"; //設定一個變數var值為happy。
+$$var = "birthday"; //設定一個變數happy值為birthday。
+
+*isset(arg)
+若不是null，則回傳true。
+*unset(arg)
+將arg設定為null。
+*empty(arg)
+若arg的值是空的，就傳回true。空的指的是整數0、浮點數0.0、""、"0"、空陣列、null、false、$var;(在類別內宣告且尚未設定值的變數)。
+*intval(arg)
+傳回arg的整數值。
+ex. intval(4.2); //傳回4
+*floatval(arg)
+傳回arg的浮點數值。
+ex. floatval("12.34ab"); //傳回12.34
+
+<常數>
+常數值不會隨著程式的執行而改變。使用define(name,value)設定:
+ex. define("pi",3.14);
+
+PHP的字串運算子是點"."
+ex. echo "a"."b";
+
+$a**$b => a的b次方
+
+錯誤控制運算子(@):在運算式前面加上@時，運算式可能產生的錯誤訊息將會被忽略。
+
+執行運算子(``):可以用來執行shell命令。
+
+PHP的if:
+語法: 
+if(condition1){ 
+
+}elseif(condition2){
+
+}else{
+
+}
+
+PHP的switch:
+語法:
+switch(expression){
+ case value:
+	statements1;
+	break;
+ case value2:
+	statements2;
+	break;
+ default:
+	statementsn;
+}
+
+for(;;) 無窮迴圈
+
+break:強制離開迴圈
+continue:在迴圈內跳過後面的敘述，直接返回迴圈的開端。
+
+PHP的foreach:
+語法1: 陣列
+foreach(arr as $value){ }
+arr:陣列名稱。
+$value:在foreach中的元素名稱。
+ex.
+$city = array('city1','city2');
+foreach($city as $value){
+ echo $value;
+}
+
+語法2: 有鍵值的陣列
+foreach(arr as $key => $value){ }
+$key:鍵。
+ex.
+$city = array('city1'=>'東京','city2'=>'台北');
+foreach($city as $key => $value){
+ echo '鍵:'.'$key'.'值:'.'$value';
+}
+
+count(arr)、sizeof(arr):
+傳回陣列arr包含幾個元素。
+
+unset( $arr[value] ):
+把arr陣列中value的那個清空。
+
+next($arr)、prev($arr):
+next是呼叫arr的下一個元素(第一次會呼叫到$arr[1])，此時用prev會呼叫arr的上一個元素(此時呼叫到$arr[0])。
+
+array_pad(arr,size,value):
+將陣列arr的大小設定為size，不足的元素會填入value。
+ex.
+$a = array('a','b');
+array_pad($a,5,'x'); // $a=('a','b','x','x','x');
+
+array_serch(value, arr):
+若陣列arr有值為value，就會回傳元素的鍵，否則回傳false。
+
+array_slice(arr, offset[, length])
+
+array_push(arr, arg1[, arg2,...]):
+將arg1...加到arr的尾端。
+
+array_pop(arr):
+將arr的尾端一個元素移除。
+
+shuffle(arr):
+將arr裡面的元素弄亂，每次都有不一樣的驚喜。
+
+array_unshift(arr, arg1[,arg2...]):
+將arg1...加到陣列arr的前端。
+
+array_shift(arr):
+將arr的前端一個元素移除。
+
+asort(arr):
+將陣列arr內的元素依值進行(由小到大)排序。
+
+arsort(arr):
+將陣列arr內的元素依值進行(由大到小)排序。
+
+ksort(arr):
+將陣列arr內的元素依鍵值進行(由小到大)排序。
+
+krsort(arr):
+將陣列arr內的元素依鍵值進行(由大到小)排序。
+
+<函式>
+使用者自訂函式:
+語法:
+function functionName([arg])[:return_type]
+{
+	statements;
+}
+
+arg:帶入參數。
+[:return_type]:宣告傳回值的型別，PHP7新增的功能。
+
+變動長度參數串列:
+ex.
+function tour(...$cities)
+{
+	foreach($cities as $value)
+		echo $value;
+}
+
+在函式內使用global可以定義為全域變數，進而更改函式外的變數。
+在函式內使用static可以定義為靜態變數，函式呼叫結束時不會釋放掉靜態變數，而是會保留下來。
+
+<數學函式>
+abs(x):傳回x的絕對值。
+ceil(x):傳回比x大1的整數。
+ex. ceil(4.3); //5
+floor(x):傳回比x小1的整數。
+ex. floor(4.3); //4
+round(x[,precision]):將x四捨五入取到小數點後precision位數。
+pow(base,exp):取次方值，傳回base的exp次方。
+sqrt(x):取x的平方根。
+max(arr1[,arr2...]):取出其中的最大數。
+min(arr1[,arr2...]):取出其中的最小數。
+rand([min,max]):傳回一個小於等於max、大於min的亂數。
+
+
+<日期時間函式>
+PHP紀錄日期時間的方式是以UNIX時間刻記，時間刻記是從1970/1/1到指定日期所經過的秒數。
+getdate([int timestamp]):將timestamp指定的時間刻記轉換成日期時間格式。其回傳值為一個陣列，包含:seconds、minutes、hours、mday、wday(以數字格式紀錄星期幾，0表示星期日、1表示星期一)、mon、year(西元年分)、yday(一年的第幾天)、weekday(以英文名稱紀錄星期幾)、month(以英文名稱紀錄月份)、0(時間刻記秒數)。
+ex.
+$Today = getdate();
+$Today["year"]; //2020;
+$Today["weekday"]; //Firday;
+
+time():取得目前的時間資訊，回傳值為時間刻記。
+checkdate(int month, int day, int year):判斷輸入的日期是否為有效日期。
+ex.
+checkdate(13,3,2020); //false; //因為沒有13月。
+
+<字串>
+strtolower(str):將字串str轉換成小寫字母。
+strtoupper(str):將字串str轉換成大寫字母。
+ucwords(str):將字串str的每個單字第一個字元轉成大寫。
+ord(str):取得字串str中第一個字元的ASCII碼。
+chr(int ascii):將數字ascii轉換成其ASCII代表字元。
+strrev(str):將字串str的字元順序顛倒。
+
+str_replace(search, replace, strArr[, int count])、str_ireplace(search, replace, strArr[, int count]):將字串strArr裡面的search替換成replace，count則是用來設定一個變數以存放成功取代字串的次數。其中str_replace()和str_ireplace()的差別在於str_replace()會區分英文字母大小寫，另一個則不會。
+ex.
+$str = "shopping list";
+str_replace("p","P",$str,$count); //$str="shoPPing list"; //$count=2;
+
+strlen(string str):取得字串str的長度。
+str_repeat(string input, int count):傳回包含count次的input所組成的字串。
+ex.str_repeat("x",3); //xxx
+
+substr(string str, int start[, int length]):字串str第start+1個字開始回傳length個字元。
+ex.substr("happy birthday",3,5); //"py bi";
+
+ltrim(str[, string charlist]):刪除字串str最左邊符合charlist指定的字元，若沒填入charlist則會刪除字串str左邊的空白字元。
+
+rtrim(str[, string charlist])、chop(str[, string charlist]):刪除字串str最右邊符合charlist指定的字元，若沒填入charlist則會刪除字串str右邊的空白字元。
+
+nl2br(str):將字串str中包含的換行符號\n、\r或\r\n轉換成HTML換行元素<br>。
+
+implode(str, arr)、join(str, arr):將陣列arr中的元素，以str隔開後組成一個新的字串。
+ex.
+$source = array("jennifer","peter");
+implode(" ",$source); //"jennifer peter";
+
+explode(string separator, str):以字串separator作為分隔符號，將字串str分割為多個子字串後回傳字串陣列。
+ex.
+$str = "i am happy.";
+explode(" ",$str); //"i","am","happy.";
+
+<檔案>
+basename(str path[, str suffix]):取得指定路徑的檔案名稱，suffix用來設定回傳結果要排除的字串。
+ex.
+$path = $_SERVER['PHP_SELF']; //$_SERVER['PHP_SELF']:目前網頁的路徑。
+echo basename($path); //此檔案名稱.php
+echo basename($path,'.php'); //此檔案名稱 //這邊排除了.php
+
+pathinfo(str):將指定路徑分割為路徑名稱(dirname)、檔案名稱(basename)、副檔名(extension)，並傳回陣列。
+ex. /ch/path.php
+$path = $_SERVER['PHP_SELF'];
+$path['dirname']; // /ch;
+$path['basename']; // path.php;
+$path['extension']; //php;
+
+realpath(str):取得檔案的絕對路徑。
+mkdir(pathname[,int mode[, bool recursive]]):建立資料夾，pathname為建立的資料夾路徑，mode為權限模式，windows系統會忽略此參數，recursive用來指定資料夾路徑的其中一個或多個資料夾不存在時，是否一併加以建立。
+getcwd():取得目前工作資料夾。
+chdir(dir):切換目前工作資料夾到路徑dir。
+rmdir(dir):刪除路徑為dir的資料夾。
+is_dir(filename):判斷filename是否為資料夾。
+file_exists(filename):用來判斷filename是否存在。
+chmod(filename, int mode):用來更改filename的權限為mode，windows會忽略此函式。
+dirname(path):取得路徑path的父資料夾名稱。
+scandir(dir[, int order]):取得dir內的檔案，排序方式取決於order，預設為遞增，若要遞減則設定為1。
+is_file(filename):判斷filename是否為檔案。
+copy(source, dest):將source的檔案複製到dest路徑上，並名稱為dest路徑的名稱。
+unlink(filename):刪除檔案filename。
+rename(oldname, newname):將檔案oldname的名字改成newname。
+fopen(filename,string mode):用來開啟filename，mode是選擇用甚麼方式開啟檔案，r唯讀、r+可讀寫、w唯寫且清除檔案內容，並將指標置於檔案最前端、w+可讀寫且清除檔案內容，並將指標置於檔案最前端、a唯寫並將指標置於檔案最前端、a+可讀寫，並將指標置於檔案最前端、x唯寫，並將指標置於檔案最前端、x+可讀寫，並將指標置於檔案最前端。
+fread(filename, int length):讀取檔案filename內容，從length的地方開始讀取，抵達檔案尾端(EOF,End Of File)時停止。
+fclose(filename):將檔案filename關閉。
+fgets(resource handle):從檔案handle指標處讀取一行資料。
+feof(resource handle):判定handle是否讀完。
+ex.
+$handle = fopen("test.txt","r");
+while(!feof($handle))
+{
+	echo fgets($handle);
+}
+fclose($handle);
+fwrite(handle, str)、fputs(handle, str):將字串str寫入檔案handle中。
+ex. hello.txt裡面已經有"hello"
+$contents="world";
+$handle = fopen("hello.txt","a");
+fwrite($handle, $contents);
+fclose($handle);
+
+file_put_contents(filename, data):無須開啟關閉檔案就可將指定內容寫入檔案內。
+
+<GD繪圖,GD:Gif Draw>
+imagecreate(int x, int y)、imagecreatetruecolor(int x, int y):建立空畫布，差別在imagecreatetruecolor支援百萬色。
+ex. $im1 = imagecreatetruecolor(1024, 768);
+imagecolorallocate(image, int red, int green, int blue):指派image畫布可使用的色彩。
+ex. 
+$white = imagecolorallocate($im1, 255, 255, 255); //指派白色;
+*第一個指派的顏色會變成該畫布的背景色。
+imageellipse(img, int x, int y, int w, int h, int color):繪製寬度為w高度為h的橢圓形在畫布img的(x,y)處，顏色為color。
+ex.
+imageellipse($im1, 100, 100, 50, 50, $white); //在畫布$im1的(100,100)處繪製一個長寬為50、顏色為白色的橢圓形;
+imageline(img, int x1, int y1, int x2, int y2, int color):在畫布img中繪製一條由(x1,y1)至(x2,y2)的直線，顏色為color。
+imagepolygon(img, arr points, int num, int color):在畫布img中繪製一個有num個點，每個點的位置為arr陣列中的(x,y)的多邊形，顏色為color。
+ex.
+//繪製由座標(210,50)、(140,80)、(110,20)、(155、50)所構成的多邊形。
+$points = array(210,50,140,80,110,20,155,50);
+$im = imagecreatetruecolor(250,100);
+$background = imagecolorallocate($im,255,255,0);
+$black=imagecolorallcate($im,0,0,0);
+imagepolygon($im,$points,4,$black);
+imagerectangle(img, int x1, int y1, int x2, int y2, int color):在畫布img中繪製一個由座標(x1,y1)為左上角，(x2,y2)為右下角端點的矩形，顏色為color。
+imagearc(img, int x, int y, int w, int h, int s, int e, int color):在畫布img中的(x,y)處繪製一個寬度為w高度為h的圓弧，開始的角度為s，結束角度為e，顏色為color。
+imagefill(img, int x, int y, int color):填滿，在畫布img的(x,y)處以顏色color填滿。
+imagefilledellipse(img, x, y, w, h, color):橢圓形填滿。
+imagefilledpolygon(img, points, num, color):多邊形填滿。
+imagefilledrectangle(img, x1, y1, x2, y2, color):矩形填滿。
+imagechar(img, int size, x, y, str, color):在畫布img的(x,y)處繪製一個大小為size(1~5)的文字str的第一個字元，顏色為color。
+imagecharup(img, size, x, y, str, color):和上一個一樣，差別在繪製直向字元。
+imagestring(img, size, x, y, str, color):繪製橫向文字(整個字串)。
+imagestringup(img, size, x, y, str, color):繪製直向文字(整個字串)。
+
+[輸出圖形]
+imagejpeg(img[, filename[, int quality]]):向瀏覽器傳送jpeg檔，或把jpeg檔存至伺服器。品質為quality(1~100)數字越大、品質越好。若filename省略，表示將畫布傳至瀏覽器，必須設定輸出至瀏覽器的MIME類型。
+ex. 將圖形傳到瀏覽器:
+header("content-type:image/jpeg");
+imagejpeg($im, null, 90);
+ex. 將圖形儲存到伺服器:
+imagejpeg($im, "images/pic1.jpeg",100);
+imagegif(img[, filename]):向瀏覽器傳送gif檔，或把gif檔存至伺服器。若filename省略，表示將畫布傳至瀏覽器，必須設定輸出至瀏覽器的MIME類型。
+ex. 將圖形傳到瀏覽器:
+imagegif($im, "images/pic1.gif");
+ex. 將圖形儲存在伺服器:
+header("content-type:image/gif");
+imagegif($im);
+imagepng(img[, filename]):向瀏覽器傳送png檔，或把png檔存至伺服器。若filename省略，表示將畫布傳至瀏覽器，必須設定輸出至瀏覽器的MIME類型。
+imagedestory(img):將畫布釋放占用記憶體。
+getimagesize(filename):用來取得圖形大小與格式。回傳值為4個元素的陣列，第1個元素為圖形寬度，第2個元素為圖形高度，第3個元素為圖形格式(1:gif、2:jpg、3:png、4:swf、5:psd、6:bmp、7:IBM PC的TIFF、8:Mac的TIFF、9:jpc、10:jp2、11:jpx、12:jb2、13:swc、14:iff、15:wbmp、16:xbm)，第4個元素為html格式的語法。
+imagecreatefromgif(filename)、imagecreatefromjpeg(filename)、imagecreatefrompng(filename):用來讀取gif、jpeg、png檔。
+
+
+
+
+
